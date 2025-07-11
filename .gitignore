@@ -1,2 +1,6 @@
+env
 .env
+userinput.py
+.cursor
+__pycache__
 
