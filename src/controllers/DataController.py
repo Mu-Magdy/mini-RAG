@@ -29,7 +29,7 @@ class DataController(BaseController):
             unique_filename = f"{random_key}_{clean_filename}"
             new_file_path = os.path.join(project_path,unique_filename)
         
-        return new_file_path
+        return new_file_path, unique_filename
         
     def get_clean_filename(self,original_filename:str):
         clean_filename = re.sub(r'[^\w. ]', '', original_filename.strip())
