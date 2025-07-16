@@ -15,3 +15,13 @@ class Project(BaseModel):
     # this class config is used to convert the ObjectId to a string so that it can be used in pydantic models
     class Config:
         arbitrary_types_allowed=True
+
+    @classmethod
+    def get_indexes(cls):
+        return [
+            {
+            "key": [("project_id", 1)],
+            "name": "project_id_index_1",
+            "unique": True
+            }
+        ]
