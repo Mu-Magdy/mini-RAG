@@ -2,6 +2,7 @@ from .BaseController import BaseController
 from fastapi import UploadFile
 from .ProjectController import ProjectController
 from models import ResponseSignal
+from helpers.config import Settings
 import re 
 import os
 
@@ -10,10 +11,10 @@ class DataController(BaseController):
         super().__init__()
         self.size_scale = 1024*1024 #1MB
         
-    def validate_uploaded_file(self,file:UploadFile):
-        if file.content_type not in self.app_settings.FILE_ALLOWED_TYPES:
+    def validate_uploaded_file(self, file: UploadFile, settings: Settings):
+        if file.content_type not in settings.FILE_ALLOWED_TYPES:
             return False, {"error":ResponseSignal.FILE_TYPE_NOT_ALLOWED.value}
-        if file.size > self.app_settings.FILE_MAX_SIZE*self.size_scale:
+        if file.size > settings.FILE_MAX_SIZE*self.size_scale:
             return False , {"error":ResponseSignal.FILE_SIZE_EXCEEDS_MAX_SIZE.value}
         return True, {"message":ResponseSignal.FILE_UPLOAD_SUCCESS.value}
 

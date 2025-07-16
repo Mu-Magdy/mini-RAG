@@ -1,6 +1,14 @@
 env
+../venv/
 .env
 userinput.py
 .cursor
-__pycache__
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+.DS_Store
+*.log
 
