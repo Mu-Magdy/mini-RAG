@@ -9,3 +9,4 @@ class ResponseSignal(Enum):
     FILE_TYPE_NOT_ALLOWED = "file_type_not_allowed"
     FILE_PROCESSING_ERROR = "file_processing_error"
     FILE_PROCESSING_SUCCESS = "file_processing_success"
+    FILE_NOT_FOUND = "file_not_found"

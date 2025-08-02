@@ -9,7 +9,7 @@ import os
 class DataController(BaseController):
     def __init__(self):
         super().__init__()
-        self.size_scale = 1024*1024 #1MB
+        self.size_scale = 1048576 #1MB
         
     def validate_uploaded_file(self, file: UploadFile, settings: Settings):
         if file.content_type not in settings.FILE_ALLOWED_TYPES:
