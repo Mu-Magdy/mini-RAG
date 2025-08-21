@@ -3,4 +3,8 @@ env
 userinput.py
 .cursor
 __pycache__
-
+venv/
+.vscode/
+.DS_Store
+docker/mongodb
+test.txt
