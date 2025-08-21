@@ -19,6 +19,7 @@ services:
     
     restart: always
 
+<<<<<<< HEAD
   pgvector:
     image: pgvector/pgvector:0.8.0-pg17
     container_name: pgvector
@@ -34,9 +35,14 @@ services:
       - backend
     restart: always
 
+=======
+>>>>>>> d73c391 (Merge pull request #1 from Mu-Magdy/feat-semantic-search)
 networks:
   backend:
 
 volumes:
   mongodata:
+<<<<<<< HEAD
   pgvector_data:
+=======
+>>>>>>> d73c391 (Merge pull request #1 from Mu-Magdy/feat-semantic-search)

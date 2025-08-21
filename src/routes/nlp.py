@@ -16,7 +16,11 @@ nlp_router = APIRouter(
 )
 
 @nlp_router.post("/index/push/{project_id}")
+<<<<<<< HEAD
 async def index_project(request: Request, project_id: int, push_request: PushRequest):
+=======
+async def index_project(request: Request, project_id: str, push_request: PushRequest):
+>>>>>>> d73c391 (Merge pull request #1 from Mu-Magdy/feat-semantic-search)
 
     project_model = await ProjectModel.create_instance(
         db_client=request.app.db_client
@@ -50,7 +54,11 @@ async def index_project(request: Request, project_id: int, push_request: PushReq
     idx = 0
 
     while has_records:
+<<<<<<< HEAD
         page_chunks = await chunk_model.get_poject_chunks(project_id=project.project_id, page_no=page_no)
+=======
+        page_chunks = await chunk_model.get_poject_chunks(project_id=project.id, page_no=page_no)
+>>>>>>> d73c391 (Merge pull request #1 from Mu-Magdy/feat-semantic-search)
         if len(page_chunks):
             page_no += 1
         
@@ -86,7 +94,11 @@ async def index_project(request: Request, project_id: int, push_request: PushReq
     )
 
 @nlp_router.get("/index/info/{project_id}")
+<<<<<<< HEAD
 async def get_project_index_info(request: Request, project_id: int):
+=======
+async def get_project_index_info(request: Request, project_id: str):
+>>>>>>> d73c391 (Merge pull request #1 from Mu-Magdy/feat-semantic-search)
     
     project_model = await ProjectModel.create_instance(
         db_client=request.app.db_client
@@ -112,7 +124,11 @@ async def get_project_index_info(request: Request, project_id: int):
     )
 
 @nlp_router.post("/index/search/{project_id}")
+<<<<<<< HEAD
 async def search_index(request: Request, project_id: int, search_request: SearchRequest):
+=======
+async def search_index(request: Request, project_id: str, search_request: SearchRequest):
+>>>>>>> d73c391 (Merge pull request #1 from Mu-Magdy/feat-semantic-search)
     
     project_model = await ProjectModel.create_instance(
         db_client=request.app.db_client
@@ -149,7 +165,11 @@ async def search_index(request: Request, project_id: int, search_request: Search
     )
 
 @nlp_router.post("/index/answer/{project_id}")
+<<<<<<< HEAD
 async def answer_rag(request: Request, project_id: int, search_request: SearchRequest):
+=======
+async def answer_rag(request: Request, project_id: str, search_request: SearchRequest):
+>>>>>>> d73c391 (Merge pull request #1 from Mu-Magdy/feat-semantic-search)
     
     project_model = await ProjectModel.create_instance(
         db_client=request.app.db_client

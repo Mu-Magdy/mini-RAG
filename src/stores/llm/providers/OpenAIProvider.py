@@ -96,7 +96,11 @@ class OpenAIProvider(LLMInterface):
     def construct_prompt(self, prompt: str, role: str):
         return {
             "role": role,
+<<<<<<< HEAD
             "content": prompt
+=======
+            "content": self.process_text(prompt)
+>>>>>>> d73c391 (Merge pull request #1 from Mu-Magdy/feat-semantic-search)
         }
     
 

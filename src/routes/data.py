@@ -21,7 +21,11 @@ data_router = APIRouter(
 )
 
 @data_router.post("/upload/{project_id}")
+<<<<<<< HEAD
 async def upload_data(request: Request, project_id: int, file: UploadFile,
+=======
+async def upload_data(request: Request, project_id: str, file: UploadFile,
+>>>>>>> d73c391 (Merge pull request #1 from Mu-Magdy/feat-semantic-search)
                       app_settings: Settings = Depends(get_settings)):
         
     
@@ -73,7 +77,11 @@ async def upload_data(request: Request, project_id: int, file: UploadFile,
     )
 
     asset_resource = Asset(
+<<<<<<< HEAD
         asset_project_id=project.project_id,
+=======
+        asset_project_id=project.id,
+>>>>>>> d73c391 (Merge pull request #1 from Mu-Magdy/feat-semantic-search)
         asset_type=AssetTypeEnum.FILE.value,
         asset_name=file_id,
         asset_size=os.path.getsize(file_path)
@@ -84,12 +92,20 @@ async def upload_data(request: Request, project_id: int, file: UploadFile,
     return JSONResponse(
             content={
                 "signal": ResponseSignal.FILE_UPLOAD_SUCCESS.value,
+<<<<<<< HEAD
                 "file_id": str(asset_record.asset_id),
+=======
+                "file_id": str(asset_record.id),
+>>>>>>> d73c391 (Merge pull request #1 from Mu-Magdy/feat-semantic-search)
             }
         )
 
 @data_router.post("/process/{project_id}")
+<<<<<<< HEAD
 async def process_endpoint(request: Request, project_id: int, process_request: ProcessRequest):
+=======
+async def process_endpoint(request: Request, project_id: str, process_request: ProcessRequest):
+>>>>>>> d73c391 (Merge pull request #1 from Mu-Magdy/feat-semantic-search)
 
     chunk_size = process_request.chunk_size
     overlap_size = process_request.overlap_size
@@ -110,7 +126,11 @@ async def process_endpoint(request: Request, project_id: int, process_request: P
     project_files_ids = {}
     if process_request.file_id:
         asset_record = await asset_model.get_asset_record(
+<<<<<<< HEAD
             asset_project_id=project.project_id,
+=======
+            asset_project_id=project.id,
+>>>>>>> d73c391 (Merge pull request #1 from Mu-Magdy/feat-semantic-search)
             asset_name=process_request.file_id
         )
 
@@ -123,19 +143,31 @@ async def process_endpoint(request: Request, project_id: int, process_request: P
             )
 
         project_files_ids = {
+<<<<<<< HEAD
             asset_record.asset_id: asset_record.asset_name
+=======
+            asset_record.id: asset_record.asset_name
+>>>>>>> d73c391 (Merge pull request #1 from Mu-Magdy/feat-semantic-search)
         }
     
     else:
         
 
         project_files = await asset_model.get_all_project_assets(
+<<<<<<< HEAD
             asset_project_id=project.project_id,
+=======
+            asset_project_id=project.id,
+>>>>>>> d73c391 (Merge pull request #1 from Mu-Magdy/feat-semantic-search)
             asset_type=AssetTypeEnum.FILE.value,
         )
 
         project_files_ids = {
+<<<<<<< HEAD
             record.asset_id: record.asset_name
+=======
+            record.id: record.asset_name
+>>>>>>> d73c391 (Merge pull request #1 from Mu-Magdy/feat-semantic-search)
             for record in project_files
         }
 
@@ -158,7 +190,11 @@ async def process_endpoint(request: Request, project_id: int, process_request: P
 
     if do_reset == 1:
         _ = await chunk_model.delete_chunks_by_project_id(
+<<<<<<< HEAD
             project_id=project.project_id
+=======
+            project_id=project.id
+>>>>>>> d73c391 (Merge pull request #1 from Mu-Magdy/feat-semantic-search)
         )
 
     for asset_id, file_id in project_files_ids.items():
@@ -189,7 +225,11 @@ async def process_endpoint(request: Request, project_id: int, process_request: P
                 chunk_text=chunk.page_content,
                 chunk_metadata=chunk.metadata,
                 chunk_order=i+1,
+<<<<<<< HEAD
                 chunk_project_id=project.project_id,
+=======
+                chunk_project_id=project.id,
+>>>>>>> d73c391 (Merge pull request #1 from Mu-Magdy/feat-semantic-search)
                 chunk_asset_id=asset_id
             )
             for i, chunk in enumerate(file_chunks)

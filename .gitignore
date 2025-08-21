@@ -55,7 +55,10 @@ logs/
 
 # User input files
 userinput.py
+<<<<<<< HEAD
 test.txt
+=======
+>>>>>>> d73c391 (Merge pull request #1 from Mu-Magdy/feat-semantic-search)
 
 # Cursor
 .cursor/ 

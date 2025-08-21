@@ -108,7 +108,11 @@ class NLPController(BaseController):
         documents_prompts = "\n".join([
             self.template_parser.get("rag", "document_prompt", {
                     "doc_num": idx + 1,
+<<<<<<< HEAD
                     "chunk_text": self.generation_client.process_text(doc.text),
+=======
+                    "chunk_text": doc.text,
+>>>>>>> d73c391 (Merge pull request #1 from Mu-Magdy/feat-semantic-search)
             })
             for idx, doc in enumerate(retrieved_documents)
         ])
