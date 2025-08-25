@@ -55,6 +55,7 @@ logs/
 
 # User input files
 userinput.py
+test.txt
 
 # Cursor
 .cursor/ 
